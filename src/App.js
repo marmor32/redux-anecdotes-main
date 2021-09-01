@@ -6,7 +6,7 @@ const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
-  const debug = { color : 'red' }
+  let debug = { color : 'red' }
 
   const vote = (id) => {
     console.log('vote', id)
