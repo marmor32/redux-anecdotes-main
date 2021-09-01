@@ -6,14 +6,17 @@ const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
+  const debug = { color : 'red' }
+
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
+    debug.color = 'blue'
   }
 
   return (
     <div>
-      <h2>Anecdotes</h2>
+      <h2 style={debug}>Anecdotes</h2>
       {anecdotes.map(anecdote =>
         <div key={anecdote.id}>
           <div>
