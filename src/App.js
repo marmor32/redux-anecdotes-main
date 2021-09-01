@@ -11,7 +11,7 @@ const App = () => {
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
-    debug.color = 'blue'
+    debug = { color : 'blue' }
   }
 
   return (
