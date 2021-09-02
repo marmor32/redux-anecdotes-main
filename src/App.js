@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { voteAction } from './reducers/anecdoteReducer'
 import { useState } from 'react'
 
-  const [debug, setDebug] = useState('debug')
 
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
-  
+
+const [debug, setDebug] = useState('debug')
 
 
   const vote = (id) => {
@@ -16,6 +16,10 @@ const App = () => {
     dispatch(voteAction(id))
     setDebug(debug + `vote ${id}`)
   }
+  
+  export const logger = (err) => {
+  setDebug(debug + err)
+}
 
   return (
     <div>
@@ -42,6 +46,3 @@ const App = () => {
 
 export default App
 
-export const logger = (err) => {
-  setDebug(debug + err)
-}
