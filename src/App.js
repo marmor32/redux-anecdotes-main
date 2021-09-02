@@ -7,6 +7,7 @@ import { useState } from 'react'
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
+  const votes = useSelector(state => state.votes)
 
 const [debug, setDebug] = useState('debug')
 
@@ -15,7 +16,8 @@ const [debug, setDebug] = useState('debug')
     console.log('vote', id)
     dispatch(voteAction(id))
     logger(JSON.stringify(voteAction(id)))
-    logger(JSON.stringify(useSelector(state => state.votes)))
+        logger(JSON.stringify(votes))
+
   }
   
   const logger = (err) => {
