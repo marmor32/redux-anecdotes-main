@@ -1,4 +1,4 @@
-import { logger } from '../app'
+import { logger } from './../app'
 
 const anecdotesAtStart = [
   'If it hurts, do it more often',
