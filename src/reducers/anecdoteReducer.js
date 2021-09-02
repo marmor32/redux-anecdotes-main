@@ -44,12 +44,12 @@ export const voteAction = (id) => {
     type: 'VOTE',
     data: { id }
   })
+}
  export const newAnecdote = (content) => {
    return ({
      type: 'NEW_ANECDOTE',
      data: content
    })
  }
-}
 
 export default reducer
