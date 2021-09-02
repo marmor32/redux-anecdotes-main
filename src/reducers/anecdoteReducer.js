@@ -28,12 +28,6 @@ const reducer = (state = initialState, action) => {
       const voted = state.find(a => a.id === action.data.id)
       const changedAnecdote = { ...voted, votes: voted.votes + 1 }
       return state.map(a => a.id === voted.id ? changedAnecdote : a)
-      /*
-      let voted = state.find(anecdote => anecdote.id === action.data.id)
-      voted.votes = voted.votes + 1
-      let newState = state.map(anecdote => (anecdote.id === voted.id) ? voted : anecdote)
-      return newState
-*/
     }
     default:
       return state
@@ -46,6 +40,12 @@ export const voteAction = (id) => {
     type: 'VOTE',
     data: { id }
   })
+ export const newAnecdote = (content) => {
+   return ({
+     type: 'NEW_ANECDOTE',
+     data: content
+   })
+ }
 }
 
 export default reducer

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { voteAction } from './reducers/anecdoteReducer'
+import { voteAction, newAnecdote } from './reducers/anecdoteReducer'
 import { useState } from 'react'
 
 
@@ -15,9 +15,7 @@ const App = () => {
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
-    logger(JSON.stringify(voteAction(id)))
     logger(JSON.stringify(votes))
-
   }
 
   const logger = (err) => {
