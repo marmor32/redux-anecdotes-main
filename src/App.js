@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { voteAction, newAnecdote } from './reducers/anecdoteReducer'
-import { useState } from 'react'
 
 
 const App = () => {
@@ -9,13 +8,9 @@ const App = () => {
   const dispatch = useDispatch()
   const votes = anecdotes.map(a => a.votes)
 
-  const [debug, setDebug] = useState('debug')
-
 
   const vote = (id) => {
-    console.log('vote', id)
     dispatch(voteAction(id))
-    logger(JSON.stringify(votes))
   }
   
   const newEntry = (event) => {
@@ -23,10 +18,6 @@ const App = () => {
     const content = event.target.entry.value
     event.target.entry.value = ''
     dispatch(newAnecdote(content))
-  }
-
-  const logger = (err) => {
-    setDebug(debug + err)
   }
 
   return (
@@ -53,3 +44,19 @@ const App = () => {
 }
 
 export default App
+
+/* import React from 'react'
+import AnecdoteForm from './components/AnecdoteForm'
+import AnecdoteList from './components/AnecdoteList'
+
+const App = () => {
+  return (
+    <div>
+      <h2>Anecdotes</h2>
+      <AnecdoteList />
+      <AnecdoteForm />
+    </div>
+  )
+}
+
+export default App */
