@@ -14,7 +14,7 @@ const [debug, setDebug] = useState('debug')
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
-    logger(voteAction(id))
+    logger(JSON.stringify(voteAction(id)))
   }
   
   const logger = (err) => {
