@@ -13,7 +13,7 @@ const App = () => {
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
-    setDebug('vote')
+    setDebug(`vote ${id}`)
   }
 
   return (
