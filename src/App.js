@@ -24,7 +24,7 @@ const App = () => {
 
     return (
       <div>
-        <h2>Anecdotes {debug}</h2>
+        <h2>Anecdotes</h2>
         {anecdotes.map(anecdote =>
           <div key={anecdote.id}>
             <div>
