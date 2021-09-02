@@ -1,51 +1,47 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { voteAction, newAnecdote } from './reducers/anecdoteReducer'
+import AnecdoteForm from './components/AnecdoteForm'
 
 
 const App = () => {
-  const anecdotes = useSelector(state => state)
-  const dispatch = useDispatch()
-  const votes = anecdotes.map(a => a.votes)
+    const anecdotes = useSelector(state => state)
+    const dispatch = useDispatch()
+    const votes = anecdotes.map(a => a.votes)
 
 
-  const vote = (id) => {
-    dispatch(voteAction(id))
-  }
-  
-  const newEntry = (event) => {
-    event.preventDefault()
-    const content = event.target.entry.value
-    event.target.entry.value = ''
-    dispatch(newAnecdote(content))
-  }
+    const vote = (id) => {
+      dispatch(voteAction(id))
+    }
 
-  return (
-    <div>
-      <h2>Anecdotes {debug}</h2>
-      {anecdotes.map(anecdote =>
-        <div key={anecdote.id}>
-          <div>
-            {anecdote.content}
+    const newEntry = (event) => {
+      event.preventDefault()
+      const content = event.target.entry.value
+      event.target.entry.value = ''
+      dispatch(newAnecdote(content))
+    }
+
+
+    return (
+      <div>
+        <h2>Anecdotes {debug}</h2>
+        {anecdotes.map(anecdote =>
+          <div key={anecdote.id}>
+            <div>
+              {anecdote.content}
+            </div>
+            <div>
+              has {anecdote.votes}
+              <button onClick={() => vote(anecdote.id)}>vote</button>
+            </div>
           </div>
-          <div>
-            has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id)}>vote</button>
-          </div>
-        </div>
+        )}
+            <AnecdoteForm />
+      </div>
       )}
-      <h2>create new</h2>
-      <form onSubmit={newEntry}>
-        <div><input name="entry"/></div>
-        <button type='submit'>create</button>
-      </form>
-    </div>
-  )
-}
-
-export default App
-
-/* import React from 'react'
+      
+    /*  
+      import React from 'react'
 import AnecdoteForm from './components/AnecdoteForm'
 import AnecdoteList from './components/AnecdoteList'
 
