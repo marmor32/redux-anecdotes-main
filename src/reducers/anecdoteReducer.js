@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
 
       const voted = state.find(a => a.id === action.data.id)
       const changedAnecdote = { ...voted, votes: voted.vote + 1 }
-      return state.map(a => a.id === id ? changedAnecdote : a)
+      return state.map(a => a.id === voted.id ? changedAnecdote : a)
       /*
       let voted = state.find(anecdote => anecdote.id === action.data.id)
       voted.votes = voted.votes + 1
