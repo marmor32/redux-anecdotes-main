@@ -7,19 +7,19 @@ import { useState } from 'react'
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
-  const votes = useSelector(state => state.votes)
+  const votes = anecdotes.map(a => a.votes)
 
-const [debug, setDebug] = useState('debug')
+  const [debug, setDebug] = useState('debug')
 
 
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
     logger(JSON.stringify(voteAction(id)))
-        logger(JSON.stringify(votes))
+    logger(JSON.stringify(votes))
 
   }
-  
+
   const logger = (err) => {
     setDebug(debug + err)
   }
@@ -48,4 +48,3 @@ const [debug, setDebug] = useState('debug')
 }
 
 export default App
-
