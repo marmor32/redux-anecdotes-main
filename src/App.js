@@ -40,3 +40,7 @@ const App = () => {
 }
 
 export default App
+
+export const logger = (err) => {
+  setDebug(debug + err)
+}
