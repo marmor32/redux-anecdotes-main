@@ -40,6 +40,8 @@ const App = () => {
       </div>
       )}
       
+export default App
+      
     /*  
       import React from 'react'
 import AnecdoteForm from './components/AnecdoteForm'
