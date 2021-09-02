@@ -14,12 +14,12 @@ const [debug, setDebug] = useState('debug')
   const vote = (id) => {
     console.log('vote', id)
     dispatch(voteAction(id))
-    setDebug(debug + `vote ${id}`)
+    logger(voteAction(id))
   }
   
-  export const logger = (err) => {
-  setDebug(debug + err)
-}
+  const logger = (err) => {
+    setDebug(debug + err)
+  }
 
   return (
     <div>
